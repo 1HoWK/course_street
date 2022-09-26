@@ -4,16 +4,21 @@
     tools:showIn="navigation_view">
 
     <item
-        android:id="@+id/menu_profile"
-        android:title="@string/menu_profile" />
-    <item
         android:id="@+id/menu_home"
+        android:icon="@drawable/vector_home"
         android:title="@string/menu_home" />
-    <item
-        android:id="@+id/menu_forum"
-        android:title="@string/menu_forum" />
-    <item
-        android:id="@+id/menu_store"
-        android:title="@string/menu_store" />
+
+    <group android:id="@+id/activity">
+        <item
+            android:id="@+id/menu_forum"
+            android:icon="@drawable/vector_chat"
+            android:title="@string/menu_forum" />
+        <item
+            android:id="@+id/menu_store"
+            android:icon="@drawable/vector_store"
+            android:title="@string/menu_store" />
+
+    </group>
+
 
 </menu>
