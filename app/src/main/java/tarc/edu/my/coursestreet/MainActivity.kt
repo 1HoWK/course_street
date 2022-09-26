@@ -28,4 +28,8 @@ class MainActivity : AppCompatActivity() {
         return nav.navigateUp(binding.drawerLayout) || super.onSupportNavigateUp()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        return super.onCreateOptionsMenu(menu)
+    }
+
 }

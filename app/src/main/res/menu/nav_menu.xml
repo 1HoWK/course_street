@@ -5,20 +5,28 @@
 
     <item
         android:id="@+id/menu_home"
+        android:checkable="true"
         android:icon="@drawable/vector_home"
         android:title="@string/menu_home" />
 
     <group android:id="@+id/activity">
         <item
             android:id="@+id/menu_forum"
+            android:checkable="true"
             android:icon="@drawable/vector_chat"
             android:title="@string/menu_forum" />
         <item
             android:id="@+id/menu_store"
+            android:checkable="true"
             android:icon="@drawable/vector_store"
             android:title="@string/menu_store" />
 
     </group>
+
+    <item
+        android:id="@+id/menu_profile"
+        android:icon="@drawable/vector_account"
+        android:title="@string/menu_profile" />
 
 
 </menu>
