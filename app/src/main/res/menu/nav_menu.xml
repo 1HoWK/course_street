@@ -4,19 +4,19 @@
     tools:showIn="navigation_view">
 
     <item
-        android:id="@+id/menu_home"
+        android:id="@+id/homeFragment"
         android:checkable="true"
         android:icon="@drawable/vector_home"
         android:title="@string/menu_home" />
 
     <group android:id="@+id/activity">
         <item
-            android:id="@+id/menu_forum"
+            android:id="@+id/forumFragment"
             android:checkable="true"
             android:icon="@drawable/vector_chat"
             android:title="@string/menu_forum" />
         <item
-            android:id="@+id/menu_store"
+            android:id="@+id/storeFragment"
             android:checkable="true"
             android:icon="@drawable/vector_store"
             android:title="@string/menu_store" />
@@ -24,7 +24,8 @@
     </group>
 
     <item
-        android:id="@+id/menu_profile"
+        android:id="@+id/profileFragment"
+        android:checkable="true"
         android:icon="@drawable/vector_account"
         android:title="@string/menu_profile" />
 
