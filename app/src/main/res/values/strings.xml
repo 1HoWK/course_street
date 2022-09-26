@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Course Street</string>
+
+    <!--menu-->
+    <string name="menu_forum">Forum</string>
+    <string name="menu_store">Store</string>
+    <string name="menu_profile">Profile</string>
+    <string name="menu_home">Home</string>
+
+
+
 </resources>
