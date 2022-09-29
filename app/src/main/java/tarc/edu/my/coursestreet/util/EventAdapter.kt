@@ -1,4 +1,4 @@
-package tarc.edu.my.coursestreet
+package tarc.edu.my.coursestreet.util
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import tarc.edu.my.coursestreet.data.EventPhoto
+import tarc.edu.my.coursestreet.R
 
 class EventAdapter : ListAdapter<EventPhoto, EventAdapter.ViewHolder>(DiffCallback){
 

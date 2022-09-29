@@ -1,4 +1,4 @@
-package tarc.edu.my.coursestreet
+package tarc.edu.my.coursestreet.data
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

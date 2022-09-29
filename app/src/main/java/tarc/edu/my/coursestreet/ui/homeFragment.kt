@@ -1,4 +1,4 @@
-package tarc.edu.my.coursestreet
+package tarc.edu.my.coursestreet.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,7 +9,9 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
+import tarc.edu.my.coursestreet.data.EventViewModel
 import tarc.edu.my.coursestreet.databinding.FragmentHomeBinding
+import tarc.edu.my.coursestreet.util.EventAdapter
 
 class homeFragment : Fragment() {
 
