@@ -2,14 +2,43 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".homeFragment">
+    tools:context=".homeFragment" >
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/eventRv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_constraintDimensionRatio="1:.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/event_item" />
 
+    <Button
+        android:id="@+id/nextPicEvent"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:icon="@drawable/next"
+        app:layout_constraintBottom_toBottomOf="@+id/eventRv"
+        app:layout_constraintEnd_toEndOf="@+id/eventRv"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-
-
+    <Button
+        android:id="@+id/prevPicEvent"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:icon="@drawable/prev"
+        app:layout_constraintBottom_toBottomOf="@+id/eventRv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/eventRv"
+        tools:ignore="SpeakableTextPresentCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
