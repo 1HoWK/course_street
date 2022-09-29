@@ -25,4 +25,14 @@
         android:name="tarc.edu.my.coursestreet.storeFragment"
         android:label="fragment_store"
         tools:layout="@layout/fragment_store" />
+    <fragment
+        android:id="@+id/uniInfoFragment"
+        android:name="tarc.edu.my.coursestreet.uniInfoFragment"
+        android:label="fragment_uni_info"
+        tools:layout="@layout/fragment_uni_info" />
+    <fragment
+        android:id="@+id/uniListFragment"
+        android:name="tarc.edu.my.coursestreet.uniListFragment"
+        android:label="fragment_uni_list"
+        tools:layout="@layout/fragment_uni_list" />
 </navigation>
