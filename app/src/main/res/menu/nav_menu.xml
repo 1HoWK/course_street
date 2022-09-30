@@ -29,5 +29,10 @@
         android:icon="@drawable/vector_account"
         android:title="@string/menu_profile" />
 
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/ic_logout"
+        android:title="Logout" />
+
 
 </menu>

@@ -35,4 +35,9 @@
         android:name="tarc.edu.my.coursestreet.ui.uniListFragment"
         android:label="fragment_uni_list"
         tools:layout="@layout/fragment_uni_list" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="tarc.edu.my.coursestreet.ui.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
 </navigation>
