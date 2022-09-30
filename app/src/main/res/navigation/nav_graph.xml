@@ -40,4 +40,14 @@
         android:name="tarc.edu.my.coursestreet.ui.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/postQuestionFragment"
+        android:name="tarc.edu.my.coursestreet.PostQuestionFragment"
+        android:label="fragment_post_question"
+        tools:layout="@layout/fragment_post_question" />
+    <fragment
+        android:id="@+id/checkQuestionFragment"
+        android:name="tarc.edu.my.coursestreet.CheckQuestionFragment"
+        android:label="fragment_check_question"
+        tools:layout="@layout/fragment_check_question" />
 </navigation>

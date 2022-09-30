@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
+import tarc.edu.my.coursestreet.R
 import tarc.edu.my.coursestreet.data.EventViewModel
 import tarc.edu.my.coursestreet.databinding.FragmentHomeBinding
 import tarc.edu.my.coursestreet.util.EventAdapter
@@ -25,8 +27,15 @@ class homeFragment : Fragment() {
         binding.nextPicEvent.setOnClickListener{ next() }
         binding.prevPicEvent.setOnClickListener { prev() }
 
+
+
         // Recycler view and Observe live data
-        val adapter = EventAdapter()
+        val adapter = EventAdapter() {holder, eventPhoto ->
+            holder.root.setOnClickListener{
+                nav.navigate(R.id.uniInfoFragment, bundleOf("id" to eventPhoto.id))
+            }
+        }
+
         binding.eventRv.adapter = adapter
         vm.eventPhoto.observe(viewLifecycleOwner){
             eventPhoto -> adapter.submitList(eventPhoto)

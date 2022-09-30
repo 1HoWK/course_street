@@ -12,7 +12,9 @@ import coil.load
 import tarc.edu.my.coursestreet.data.EventPhoto
 import tarc.edu.my.coursestreet.R
 
-class EventAdapter : ListAdapter<EventPhoto, EventAdapter.ViewHolder>(DiffCallback){
+class EventAdapter (
+    val fn: ( ViewHolder, EventPhoto) -> Unit = {_, _ ->}
+): ListAdapter<EventPhoto, EventAdapter.ViewHolder>(DiffCallback){
 
     //static member
     companion object DiffCallback: DiffUtil.ItemCallback<EventPhoto>(){
@@ -36,5 +38,7 @@ class EventAdapter : ListAdapter<EventPhoto, EventAdapter.ViewHolder>(DiffCallba
         val item = getItem(position)
         holder.eventPhoto.load(item.eventPhoto) { placeholder(R.drawable.loading_ani) }
         holder.eventTitle.text = item.author
+
+        fn(holder, item)
     }
 }
