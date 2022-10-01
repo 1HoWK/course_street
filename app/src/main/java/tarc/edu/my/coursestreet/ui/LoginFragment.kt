@@ -30,17 +30,14 @@ class LoginFragment : Fragment() {
     }
 
     private fun login() {
-        hideKeyboard()
-
         val ctx      = requireContext()
         val email    = binding.edtEmail.text.toString().trim()
         val password = binding.edtPassword.text.toString().trim()
-        val remember = binding.chkRemember.isChecked
 
         // TODO(3): Login -> auth.login(...)
         //          Clear navigation backstack
         lifecycleScope.launch{
-            val success = auth.login(ctx, email,password,remember)
+            val success = auth.login(ctx, email,password)
             if (success){
                 nav.popBackStack(R.id.homeFragment, false)
                 nav.navigateUp()

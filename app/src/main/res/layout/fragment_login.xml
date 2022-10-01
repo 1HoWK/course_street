@@ -56,17 +56,6 @@
         app:layout_constraintTop_toBottomOf="@+id/edtEmail"
         tools:ignore="TouchTargetSizeCheck" />
 
-    <CheckBox
-        android:id="@+id/chkRemember"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Remember Me"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
-
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
@@ -75,7 +64,7 @@
         android:layout_marginTop="8dp"
         android:text="Login"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/chkRemember" />
+        app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
 
     <TextView
         android:layout_width="wrap_content"

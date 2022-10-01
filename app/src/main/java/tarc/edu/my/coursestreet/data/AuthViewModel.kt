@@ -48,7 +48,7 @@ class AuthViewModel : ViewModel() {
     }
 
     // TODO(1): Login
-    suspend fun login(ctx: Context, email: String, password: String, remember: Boolean = false): Boolean {
+    suspend fun login(ctx: Context, email: String, password: String, remember: Boolean = true): Boolean {
         // TODO(1A): Get the user record with matching email + password
         //           Return false is no matching found
         var user = USERS
