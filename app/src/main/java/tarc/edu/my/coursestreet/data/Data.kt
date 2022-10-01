@@ -12,6 +12,7 @@ data class User(
     var email   : String = "",
     var password: String = "",
     var name    : String = "",
+    var credit  : Int = 0,
     var photo   : Blob = Blob.fromBytes(ByteArray(0)),
 )
 

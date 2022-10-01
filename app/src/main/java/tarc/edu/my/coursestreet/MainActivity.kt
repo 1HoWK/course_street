@@ -12,6 +12,7 @@ import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.*
+import com.google.firebase.firestore.Blob
 import kotlinx.coroutines.launch
 import tarc.edu.my.coursestreet.data.AuthViewModel
 import tarc.edu.my.coursestreet.data.User
@@ -73,6 +74,7 @@ class MainActivity : AppCompatActivity() {
                 nav.navigate(R.id.homeFragment)
                 nav.navigate(R.id.action_homeFragment_to_loginFragment)
             }else{
+                nav.navigate(R.id.homeFragment)
                 supportActionBar?.show()
                 appBarConf = AppBarConfiguration(
                     setOf(
@@ -110,7 +112,9 @@ class MainActivity : AppCompatActivity() {
         val h = binding.navView.getHeaderView(0)
         val b = HeaderBinding.bind(h)
 
-        b.imageView.setImageBlob(user.photo)
+        if(auth.getUser()?.photo != Blob.fromBytes(ByteArray(0))) {
+            b.imageView.setImageBlob(user.photo)
+        }
         b.textView5.text  = user.name
         b.textView6.text = user.email
     }

@@ -57,6 +57,7 @@ class RegisterFragment : Fragment() {
         binding.edtRegPassword.text.clear()
         binding.edtConfirmPass.text.clear()
         binding.imgPhoto.setImageDrawable(null)
+        binding.edtRegName.requestFocus()
     }
 
     private fun register() {
@@ -64,6 +65,7 @@ class RegisterFragment : Fragment() {
             name= binding.edtRegName.text.toString().trim(),
             email = binding.edtRegEmail.text.toString().trim(),
             password  = binding.edtRegPassword.text.toString().trim(),
+            credit = 0,
             photo = binding.imgPhoto.cropToBlob(300,300),
             // TODO: Photo
 
