@@ -1,17 +1,24 @@
 package tarc.edu.my.coursestreet
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.AlarmClock.EXTRA_MESSAGE
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.activity.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.*
+import kotlinx.coroutines.launch
 import tarc.edu.my.coursestreet.data.AuthViewModel
 import tarc.edu.my.coursestreet.data.User
 import tarc.edu.my.coursestreet.databinding.ActivityMainBinding
 import tarc.edu.my.coursestreet.databinding.HeaderBinding
+import tarc.edu.my.coursestreet.ui.LoginFragment
+import tarc.edu.my.coursestreet.ui.homeFragment
 import tarc.edu.my.coursestreet.util.setImageBlob
 
 
@@ -27,50 +34,66 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        appBarConf = AppBarConfiguration(
-            setOf(
-                R.id.homeFragment,
-                R.id.forumFragment,
-                R.id.storeFragment,
-                R.id.profileFragment
-            ),
-            binding.drawerLayout
-        )
-        setupActionBarWithNavController(nav, appBarConf)
-        binding.navView.setupWithNavController(nav)
+//        appBarConf = AppBarConfiguration(
+//            setOf(
+//                R.id.homeFragment,
+//                R.id.forumFragment,
+//                R.id.storeFragment,
+//                R.id.profileFragment
+//            ),
+//            binding.drawerLayout
+//        )
+//        setupActionBarWithNavController(nav, appBarConf)
+//        binding.navView.setupWithNavController(nav)
+//
+//        if(auth.getUser() == null){
+//            val intent = Intent(this, LoginActivity::class.java)
+//            startActivity(intent)
+//        }
 
         // TODO:LOGIN
+        if (auth.getEmail(this@MainActivity)){
+            nav.navigate(R.id.homeFragment)
+            nav.navigate(R.id.action_homeFragment_to_loginFragment)
+        }
+
 //        if (auth.getUser() == null){
+//            nav.navigate(R.id.homeFragment)
+//            nav.navigate(R.id.action_homeFragment_to_loginFragment)
 //            nav.navigate(R.id.loginFragment)
+//            val loginFragment = LoginFragment()
+//            supportFragmentManager.beginTransaction().replace(R.id.host, loginFragment).commit()
 //        }
-//
-//        auth.getUserLiveData().observe(this) { user ->
-//
-//            binding.navView.menu.clear()
-//            binding.drawerLayout.close()
-//
-//            if (user == null){
-//                nav.navigate(R.id.loginFragment)
-//            }else{
-//                appBarConf = AppBarConfiguration(
-//                    setOf(
-//                        R.id.homeFragment,
-//                        R.id.forumFragment,
-//                        R.id.storeFragment,
-//                        R.id.profileFragment
-//                    ),
-//                    binding.drawerLayout
-//                )
-//                setupActionBarWithNavController(nav, appBarConf)
-//                binding.navView.setupWithNavController(nav)
-//
-//                binding.navView.inflateMenu(R.menu.nav_menu)
-//                setHeader(user)
-//
-//                binding.navView.menu.findItem(R.id.logout)?.setOnMenuItemClickListener { logout() }
-//            }
-//
-//        }
+
+        auth.getUserLiveData().observe(this) { user ->
+            binding.navView.menu.clear()
+            binding.drawerLayout.close()
+            if (user == null){
+                supportActionBar?.hide()
+                nav.navigate(R.id.homeFragment)
+                nav.navigate(R.id.action_homeFragment_to_loginFragment)
+            }else{
+                supportActionBar?.show()
+                appBarConf = AppBarConfiguration(
+                    setOf(
+                        R.id.homeFragment,
+                        R.id.forumFragment,
+                        R.id.storeFragment,
+                        R.id.profileFragment
+                    ),
+                    binding.drawerLayout
+                )
+                setupActionBarWithNavController(nav, appBarConf)
+                binding.navView.setupWithNavController(nav)
+
+                binding.navView.inflateMenu(R.menu.nav_menu)
+                setHeader(user)
+            }
+            binding.navView.menu.findItem(R.id.logout)?.setOnMenuItemClickListener { logout() }
+
+        }
+
+        lifecycleScope.launch{ auth.loginFromPreferences(this@MainActivity)}
 
     }
 
@@ -78,8 +101,8 @@ class MainActivity : AppCompatActivity() {
         // TODO(4): Logout -> auth.logout(...)
         //          Clear navigation backstack
         auth.logout(this)
-        nav.popBackStack(R.id.loginFragment,false)
-        nav.navigate(R.id.loginFragment)
+        nav.navigate(R.id.homeFragment)
+        nav.navigate(R.id.action_homeFragment_to_loginFragment)
         return true
     }
 

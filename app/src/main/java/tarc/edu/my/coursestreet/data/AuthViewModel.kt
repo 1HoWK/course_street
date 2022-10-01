@@ -2,6 +2,7 @@ package tarc.edu.my.coursestreet.data
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
 import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -65,6 +66,7 @@ class AuthViewModel : ViewModel() {
         listener?.remove()
         listener = USERS.document(user.id).addSnapshotListener { doc, _ ->
             userLiveData.value = doc?.toObject()
+
         }
 
 
@@ -91,8 +93,8 @@ class AuthViewModel : ViewModel() {
 
 
         // TODO(6B): Handle remember-me -> clear shared preferences
-        //getPreferences(ctx).edit().clear().apply()
-        getPreferences(ctx).edit().remove("password").apply()
+        getPreferences(ctx).edit().clear().apply()
+        //getPreferences(ctx).edit().remove("password").apply()
 
     }
 
@@ -114,11 +116,16 @@ class AuthViewModel : ViewModel() {
         val pref = getPreferences(ctx)
         val email = pref.getString("email",null)
         val password = pref.getString("password", null)
-
         if (email!=null&&password!=null){
             login(ctx,email,password)
         }
 
+    }
+
+    fun getEmail(ctx:Context): Boolean{
+        val pref = getPreferences(ctx)
+        val email = pref.getString("email",null)
+        return email==null
     }
 
     private fun emailExists(email: String): Boolean{
