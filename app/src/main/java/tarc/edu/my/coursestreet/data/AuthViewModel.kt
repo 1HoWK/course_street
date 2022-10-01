@@ -42,6 +42,10 @@ class AuthViewModel : ViewModel() {
         return userLiveData.value
     }
 
+    fun getUserID(): String {
+        return userLiveData.value?.id ?: ""
+    }
+
     fun set(user: User) {
         // TODO
         col.document().set(user)

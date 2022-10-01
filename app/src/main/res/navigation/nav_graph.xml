@@ -59,9 +59,9 @@
     </fragment>
     <fragment
         android:id="@+id/postQuestionFragment"
-        android:name="tarc.edu.my.coursestreet.ui.CheckQuestionFragment"
+        android:name="tarc.edu.my.coursestreet.ui.PostQuestionFragment"
         android:label="Post Question"
-        tools:layout="@layout/fragment_check_question" />
+        tools:layout="@layout/fragment_post_question" />
     <fragment
         android:id="@+id/checkQuestionFragment"
         android:name="tarc.edu.my.coursestreet.ui.CheckQuestionFragment"

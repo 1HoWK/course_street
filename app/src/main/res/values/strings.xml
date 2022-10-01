@@ -19,6 +19,10 @@
     <string name="postquestion_text">Post Question</string>
     <string name="answered_txt">Answered</string>
     <string name="unanswered_txt">Unanswered</string>
+    <string name="ask_question">Ask a question!</string>
+    <string name="title_help">Title</string>
+    <string name="question_help">Question</string>
+    <string name="post_help">Post</string>
 
 
 </resources>
