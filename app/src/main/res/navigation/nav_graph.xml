@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/forumFragment"
         android:name="tarc.edu.my.coursestreet.ui.forumFragment"
-        android:label="fragment_forum"
+        android:label="Forum"
         tools:layout="@layout/fragment_forum" />
     <fragment
         android:id="@+id/storeFragment"
@@ -42,14 +42,13 @@
         tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/postQuestionFragment"
-        android:name="tarc.edu.my.coursestreet.PostQuestionFragment"
-        android:label="fragment_post_question"
-        tools:layout="@layout/fragment_post_question" />
+        android:name="tarc.edu.my.coursestreet.ui.CheckQuestionFragment"
+        android:label="Post Question"
+        tools:layout="@layout/fragment_check_question" />
     <fragment
         android:id="@+id/checkQuestionFragment"
-        android:name="tarc.edu.my.coursestreet.CheckQuestionFragment"
-        android:label="fragment_check_question"
-        tools:layout="@layout/fragment_check_question" />
+        android:name="tarc.edu.my.coursestreet.ui.CheckQuestionFragment"
+        android:label="Answers" />
     <fragment
         android:id="@+id/registerFragment"
         android:name="tarc.edu.my.coursestreet.ui.RegisterFragment"

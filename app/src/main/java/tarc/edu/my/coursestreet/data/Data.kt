@@ -14,4 +14,13 @@ data class User(
     var photo   : Blob = Blob.fromBytes(ByteArray(0)),
 )
 
+data class Questions(
+    @DocumentId
+    var id      : String = "",
+    var user    : String = "",
+    var title   : String = "",
+    var question: String = "",
+    var answered: Boolean = false
+)
+
 val USERS = Firebase.firestore.collection("users")

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#15D6BF">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/question_card"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="4dp"
+        app:contentPadding="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/questionTitle"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="QUESTION TITLE"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/questionTxt"
+                android:layout_width="355dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/dummy_content"
+                app:layout_constraintStart_toStartOf="@+id/questionTitle"
+                app:layout_constraintTop_toBottomOf="@+id/questionTitle" />
+
+            <TextView
+                android:id="@+id/questionStatus"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="#4CAF50"
+                android:text="@string/answered_txt"
+                android:textAlignment="center"
+                android:textColor="#263238"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/questionTitle"
+                app:layout_constraintTop_toTopOf="@+id/questionTitle" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

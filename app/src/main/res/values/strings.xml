@@ -17,6 +17,8 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="forum_text">Forum</string>
     <string name="postquestion_text">Post Question</string>
+    <string name="answered_txt">Answered</string>
+    <string name="unanswered_txt">Unanswered</string>
 
 
 </resources>
