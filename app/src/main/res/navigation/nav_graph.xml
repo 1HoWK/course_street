@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="tarc.edu.my.coursestreet.ui.profileFragment"
-        android:label="fragment_profile"
+        android:label="Profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/homeFragment"
@@ -71,4 +71,14 @@
         android:name="tarc.edu.my.coursestreet.ui.RegisterFragment"
         android:label="@string/app_name"
         tools:layout="@layout/fragment_register" />
+    <fragment
+        android:id="@+id/profileEditFragment"
+        android:name="tarc.edu.my.coursestreet.ui.ProfileEditFragment"
+        android:label="Edit Profile"
+        tools:layout="@layout/fragment_profile_edit" />
+    <fragment
+        android:id="@+id/profileEditPasswordFragment"
+        android:name="tarc.edu.my.coursestreet.ui.ProfileEditPasswordFragment"
+        android:label="Change Password"
+        tools:layout="@layout/fragment_profile_edit_password" />
 </navigation>

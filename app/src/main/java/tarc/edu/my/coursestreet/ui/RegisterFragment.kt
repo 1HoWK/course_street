@@ -28,7 +28,7 @@ class RegisterFragment : Fragment() {
     // TODO: Get content launcher
     private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
         if(it.resultCode == Activity.RESULT_OK){
-            binding.imgPhoto.setImageURI(it.data?.data)
+            binding.regImgPhoto.setImageURI(it.data?.data)
         }
     }
 
@@ -36,7 +36,7 @@ class RegisterFragment : Fragment() {
         binding = FragmentRegisterBinding.inflate(inflater, container, false)
 
         reset()
-        binding.imgPhoto.setOnClickListener  { select() }
+        binding.regImgPhoto.setOnClickListener  { select() }
         binding.btnReset.setOnClickListener  { reset()  }
         binding.btnRegister.setOnClickListener { register() }
 
@@ -56,7 +56,7 @@ class RegisterFragment : Fragment() {
         binding.edtRegEmail.text.clear()
         binding.edtRegPassword.text.clear()
         binding.edtConfirmPass.text.clear()
-        binding.imgPhoto.setImageDrawable(null)
+        binding.regImgPhoto.setImageDrawable(null)
         binding.edtRegName.requestFocus()
     }
 
@@ -66,7 +66,7 @@ class RegisterFragment : Fragment() {
             email = binding.edtRegEmail.text.toString().trim(),
             password  = binding.edtRegPassword.text.toString().trim(),
             credit = 0,
-            photo = binding.imgPhoto.cropToBlob(300,300),
+            photo = binding.regImgPhoto.cropToBlob(300,300),
             // TODO: Photo
 
         )

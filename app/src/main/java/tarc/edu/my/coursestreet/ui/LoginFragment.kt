@@ -13,7 +13,6 @@ import tarc.edu.my.coursestreet.R
 import tarc.edu.my.coursestreet.data.AuthViewModel
 import tarc.edu.my.coursestreet.databinding.FragmentLoginBinding
 import tarc.edu.my.coursestreet.util.errorDialog
-import tarc.edu.my.coursestreet.util.hideKeyboard
 
 
 class LoginFragment : Fragment() {
@@ -31,16 +30,16 @@ class LoginFragment : Fragment() {
 
     private fun login() {
         val ctx      = requireContext()
-        val email    = binding.edtEmail.text.toString().trim()
-        val password = binding.edtPassword.text.toString().trim()
+        val email    = binding.edtLoginEmail.text.toString().trim()
+        val password = binding.edtLoginPassword.text.toString().trim()
 
         // TODO(3): Login -> auth.login(...)
         //          Clear navigation backstack
         lifecycleScope.launch{
             val success = auth.login(ctx, email,password)
             if (success){
-                nav.popBackStack(R.id.homeFragment, false)
-                nav.navigateUp()
+                nav.navigate(R.id.loginFragment)
+                nav.navigate(R.id.action_loginFragment_to_homeFragment)
             }else{
                 errorDialog("Invalid login credentials.")
             }

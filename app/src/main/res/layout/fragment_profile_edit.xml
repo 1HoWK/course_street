@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ProfileEditFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="114dp" />
+
+    <TextView
+        android:id="@+id/txtProfileEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/guidelineEdit"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="" />
+
+    <EditText
+        android:id="@+id/edtProfileName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:importantForAccessibility="no"
+        android:importantForAutofill="no"
+        android:inputType="textCapWords"
+        android:maxLength="50"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/guidelineEdit"
+        app:layout_constraintTop_toBottomOf="@+id/txtProfileEmail"
+        tools:ignore="TouchTargetSizeCheck" />
+
+
+    <Button
+        android:id="@+id/btnProfileReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Reset"
+        app:layout_constraintStart_toStartOf="@+id/guidelineEdit"
+        app:layout_constraintTop_toBottomOf="@+id/editImgPhoto" />
+
+    <Button
+        android:id="@+id/btnProfileSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Save"
+        app:layout_constraintStart_toEndOf="@+id/btnProfileReset"
+        app:layout_constraintTop_toBottomOf="@+id/editImgPhoto" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/txtProfileEmail"
+        android:text="@string/email"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtProfileEmail"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineEdit"
+        app:layout_constraintTop_toTopOf="@+id/txtProfileEmail" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/edtProfileName"
+        android:text="@string/name"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/edtProfileName"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineEdit"
+        app:layout_constraintTop_toTopOf="@+id/edtProfileName" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:labelFor="@id/editImgPhoto"
+        android:text="@string/photo"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/editImgPhoto"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineEdit"
+        app:layout_constraintTop_toTopOf="@+id/editImgPhoto"
+        app:layout_constraintVertical_bias="0.522" />
+
+    <ImageView
+        android:id="@+id/editImgPhoto"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="8dp"
+        android:background="#CCC"
+        android:cropToPadding="true"
+        android:padding="1dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="@+id/guidelineEdit"
+        app:layout_constraintTop_toBottomOf="@+id/edtProfileName" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

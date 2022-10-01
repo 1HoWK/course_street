@@ -20,14 +20,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
+        android:id="@+id/guidelineLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="95dp" />
 
     <EditText
-        android:id="@+id/edtEmail"
+        android:id="@+id/edtLoginEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -36,14 +36,14 @@
         android:ems="10"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLogin"
         app:layout_constraintTop_toBottomOf="@+id/txtTitle"
         tools:ignore="TouchTargetSizeCheck">
         <requestFocus />
     </EditText>
 
     <EditText
-        android:id="@+id/edtPassword"
+        android:id="@+id/edtLoginPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -52,8 +52,8 @@
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/edtEmail"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLogin"
+        app:layout_constraintTop_toBottomOf="@+id/edtLoginEmail"
         tools:ignore="TouchTargetSizeCheck" />
 
     <Button
@@ -63,30 +63,30 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Login"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
+        app:layout_constraintStart_toStartOf="@+id/guidelineLogin"
+        app:layout_constraintTop_toBottomOf="@+id/edtLoginPassword" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:labelFor="@id/edtEmail"
-        android:text="Email"
+        android:labelFor="@id/edtLoginEmail"
+        android:text="@string/email"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/edtEmail"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/edtEmail" />
+        app:layout_constraintBottom_toBottomOf="@+id/edtLoginEmail"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineLogin"
+        app:layout_constraintTop_toTopOf="@+id/edtLoginEmail" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:labelFor="@id/edtPassword"
-        android:text="Password"
+        android:labelFor="@id/edtLoginPassword"
+        android:text="@string/password"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/edtPassword"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/edtPassword" />
+        app:layout_constraintBottom_toBottomOf="@+id/edtLoginPassword"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineLogin"
+        app:layout_constraintTop_toTopOf="@+id/edtLoginPassword" />
 
     <Button
         android:id="@+id/btnReg"
@@ -95,7 +95,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Register"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLogin"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

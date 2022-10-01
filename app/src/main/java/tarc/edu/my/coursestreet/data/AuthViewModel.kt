@@ -51,6 +51,7 @@ class AuthViewModel : ViewModel() {
         col.document().set(user)
     }
 
+
     // TODO(1): Login
     suspend fun login(ctx: Context, email: String, password: String, remember: Boolean = true): Boolean {
         // TODO(1A): Get the user record with matching email + password
@@ -126,7 +127,7 @@ class AuthViewModel : ViewModel() {
 
     }
 
-    fun getEmail(ctx:Context): Boolean{
+    fun noEmail(ctx:Context): Boolean{
         val pref = getPreferences(ctx)
         val email = pref.getString("email",null)
         return email==null
@@ -161,4 +162,5 @@ class AuthViewModel : ViewModel() {
 
         return e
     }
+
 }

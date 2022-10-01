@@ -27,27 +27,6 @@ fun Fragment.errorDialog(text: String) {
         .show()
 }
 
-// Usage: Show an information dialog from fragment
-fun Fragment.infoDialog(text: String) {
-    AlertDialog.Builder(context)
-        .setIcon(R.drawable.ic_info)
-        .setTitle("Information")
-        .setMessage(text)
-        .setPositiveButton("Dismiss", null)
-        .show()
-}
-
-// Usage: Show a snackbar from fragment
-fun Fragment.snackbar(text: String) {
-    Snackbar.make(requireView(), text, Snackbar.LENGTH_SHORT).show()
-}
-
-// Usage: Hide keyboard from fragment
-fun Fragment.hideKeyboard() {
-    val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    imm.hideSoftInputFromWindow(requireView().windowToken, 0)
-}
-
 // ----------------------------------------------------------------------------
 // Bitmap Extensions
 // ----------------------------------------------------------------------------
