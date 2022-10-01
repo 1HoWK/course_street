@@ -25,6 +25,7 @@ class LoginFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         binding.btnLogin.setOnClickListener { login() }
+        binding.btnReg.setOnClickListener { register() }
         return binding.root
     }
 
@@ -48,5 +49,9 @@ class LoginFragment : Fragment() {
             }
         }
 
+    }
+
+    private fun register() {
+        nav.navigate(R.id.registerFragment)
     }
 }

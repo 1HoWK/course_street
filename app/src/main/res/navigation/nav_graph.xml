@@ -50,4 +50,9 @@
         android:name="tarc.edu.my.coursestreet.CheckQuestionFragment"
         android:label="fragment_check_question"
         tools:layout="@layout/fragment_check_question" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="tarc.edu.my.coursestreet.ui.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
 </navigation>
