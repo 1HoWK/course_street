@@ -27,6 +27,16 @@ fun Fragment.errorDialog(text: String) {
         .show()
 }
 
+// Usage: Show an information dialog from fragment
+fun Fragment.infoDialog(text: String) {
+    AlertDialog.Builder(context)
+        .setIcon(R.drawable.ic_info)
+        .setTitle("Information")
+        .setMessage(text)
+        .setPositiveButton("Dismiss", null)
+        .show()
+}
+
 // ----------------------------------------------------------------------------
 // Bitmap Extensions
 // ----------------------------------------------------------------------------

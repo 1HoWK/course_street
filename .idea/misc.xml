@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+
         <entry key="..\:/Documents/course_street/app/src/main/res/layout/fragment_check_question.xml" value="0.264" />
         <entry key="..\:/Documents/course_street/app/src/main/res/layout/reply_layout_alert.xml" value="0.2554347826086957" />
         <entry key="..\:/Documents/course_street/app/src/main/res/menu/nav_menu.xml" value="0.2109375" />
+        <entry key="..\:/Users/chano/StudioProjects/course_street/app/src/main/res/layout/fragment_results.xml" value="0.4" />
         <entry key="..\:/Users/howai/AndroidStudioProjects/coursestreet/app/src/main/res/drawable/ic_baseline_chat_24.xml" value="0.39" />
         <entry key="..\:/Users/howai/AndroidStudioProjects/coursestreet/app/src/main/res/drawable/vector_account.xml" value="0.2265" />
         <entry key="..\:/Users/howai/AndroidStudioProjects/coursestreet/app/src/main/res/drawable/vector_chat.xml" value="0.2265" />

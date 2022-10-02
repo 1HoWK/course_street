@@ -66,9 +66,17 @@ class MainActivity : AppCompatActivity() {
                 nav.navigate(R.id.homeFragment)
                 nav.navigate(R.id.action_homeFragment_to_loginFragment)
             }else{
+                if(user.results){
                 supportActionBar?.show()
                 binding.navView.inflateMenu(R.menu.nav_menu)
                 setHeader(user)
+               }else{
+                    supportActionBar?.hide()
+                    nav.popBackStack(R.id.nav_graph,true)
+                    nav.navigate(R.id.loginFragment)
+                    nav.navigate(R.id.action_loginFragment_to_resultsFragment)
+                }
+
             }
             binding.navView.menu.findItem(R.id.logout)?.setOnMenuItemClickListener { logout() }
 
