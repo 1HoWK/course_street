@@ -12,14 +12,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import tarc.edu.my.coursestreet.R
 import tarc.edu.my.coursestreet.data.EventViewModel
+import tarc.edu.my.coursestreet.data.MatchedUniViewModel
 import tarc.edu.my.coursestreet.databinding.FragmentHomeBinding
 import tarc.edu.my.coursestreet.util.EventAdapter
+import tarc.edu.my.coursestreet.util.MatchUniAdapter
 
 class homeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private val nav by lazy { findNavController() }
     private val vm: EventViewModel by activityViewModels()
+    private val univm: MatchedUniViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentHomeBinding.inflate(inflater,container,false)
@@ -45,6 +48,17 @@ class homeFragment : Fragment() {
         val snap = LinearSnapHelper()
         snap.attachToRecyclerView(binding.eventRv)
 
+        val uniListAdapter = MatchUniAdapter() { holder, data ->
+            holder.root.setOnClickListener{
+                nav.navigate(R.id.uniInfoFragment, bundleOf("id" to data.id))
+            }
+        }
+
+        binding.matchedUniRV.adapter = uniListAdapter
+
+        univm.getAllUni().observe(viewLifecycleOwner) { uni ->
+            uniListAdapter.submitList(uni)
+        }
 
         return binding.root
     }

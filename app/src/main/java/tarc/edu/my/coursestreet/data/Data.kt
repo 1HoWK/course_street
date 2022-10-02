@@ -91,6 +91,14 @@ data class Academic(
 
     )
 
+data class Universities(
+    @DocumentId
+    var id          : String = "",
+    var Programme1: String = "",
+    var Programme2: String = "",
+
+    )
+
 val USERS = Firebase.firestore.collection("users")
 val STORE = Firebase.firestore.collection("store")
 val QUESTIONS = Firebase.firestore.collection("questions")
