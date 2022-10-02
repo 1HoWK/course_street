@@ -27,30 +27,10 @@ class homeFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentHomeBinding.inflate(inflater,container,false)
 
-        binding.nextPicEvent.setOnClickListener{ next() }
-        binding.prevPicEvent.setOnClickListener { prev() }
 
-
-
-        // Recycler view and Observe live data
-        val adapter = EventAdapter() {holder, eventPhoto ->
-            holder.root.setOnClickListener{
-                nav.navigate(R.id.uniInfoFragment, bundleOf("id" to eventPhoto.id))
-            }
-        }
-
-        binding.eventRv.adapter = adapter
-        vm.eventPhoto.observe(viewLifecycleOwner){
-            eventPhoto -> adapter.submitList(eventPhoto)
-        }
-
-        //snapHelper
-        val snap = LinearSnapHelper()
-        snap.attachToRecyclerView(binding.eventRv)
 
         val uniListAdapter = MatchUniAdapter() { holder, data ->
             holder.root.setOnClickListener{
-                nav.navigate(R.id.uniInfoFragment, bundleOf("id" to data.id))
             }
         }
 
@@ -63,25 +43,5 @@ class homeFragment : Fragment() {
         return binding.root
     }
 
-    private fun getCount(): Int {
-        return binding.eventRv.adapter?.itemCount ?: 0
-    }
-
-    private fun getPosition(): Int {
-        val mgr = binding.eventRv.layoutManager as LinearLayoutManager
-        return mgr.findFirstVisibleItemPosition()
-    }
-
-    private fun prev() {
-        val pos = getPosition() - 1
-        if (pos >= 0)
-            binding.eventRv.smoothScrollToPosition(pos)
-    }
-
-    private fun next() {
-        val pos = getPosition() + 1
-        if (pos < getCount())
-            binding.eventRv.smoothScrollToPosition(pos)
-    }
 
 }

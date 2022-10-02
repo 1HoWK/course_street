@@ -41,6 +41,7 @@
     <string name="submit">Upload Information</string>
     <string name="subject">Subject</string>
     <string name="grade">Grade</string>
+    <string name="uniList">Universities List</string>
 
     <string-array name="qualification_array">
         <item>-</item>

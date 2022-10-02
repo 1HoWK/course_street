@@ -7,54 +7,30 @@
     tools:context=".ui.homeFragment" >
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/eventRv"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:padding="4dp"
-        app:layoutManager="LinearLayoutManager"
-        app:layout_constraintDimensionRatio="1:.5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/event_item" />
-
-    <Button
-        android:id="@+id/nextPicEvent"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        app:icon="@drawable/next"
-        app:layout_constraintBottom_toBottomOf="@+id/eventRv"
-        app:layout_constraintEnd_toEndOf="@+id/eventRv"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <Button
-        android:id="@+id/prevPicEvent"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        app:icon="@drawable/prev"
-        app:layout_constraintBottom_toBottomOf="@+id/eventRv"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/eventRv"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/matchedUniRV"
         android:layout_width="412dp"
-        android:layout_height="452dp"
+        android:layout_height="443dp"
         android:padding="10dp"
         app:layoutManager="LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eventRv"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toTopOf="parent"
         tools:itemCount="3"
         tools:listitem="@layout/matcheduni_item" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="@string/uniList"
+        android:textColor="#000000"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/matchedUniRV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
