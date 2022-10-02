@@ -13,7 +13,9 @@ import tarc.edu.my.coursestreet.data.Items
 import tarc.edu.my.coursestreet.data.StoreViewModel
 import tarc.edu.my.coursestreet.data.USERS
 import tarc.edu.my.coursestreet.databinding.FragmentStoreBinding
+import tarc.edu.my.coursestreet.util.SimpleEmail
 import tarc.edu.my.coursestreet.util.StoreAdapter
+import tarc.edu.my.coursestreet.util.snackbar
 
 class storeFragment : Fragment() {
     private lateinit var binding: FragmentStoreBinding
@@ -50,7 +52,8 @@ class storeFragment : Fragment() {
                     svm.setItemUser(itemSet)
                     val currentUser = vm.getUserLiveData()
                     USERS.document("${vm.getUserID()}").update("credit", currentUser.value!!.credit - store.itemPrice)
-                    Toast.makeText(context, "Successfully Redeemed", Toast.LENGTH_SHORT).show()
+                    sendemail(store.itemName)
+                    //Toast.makeText(context, "Successfully Redeemed", Toast.LENGTH_SHORT).show()
 
                 }else{
                     Toast.makeText(context, "Not enough credit", Toast.LENGTH_SHORT).show()
@@ -68,5 +71,26 @@ class storeFragment : Fragment() {
         return binding.root
     }
 
+    private fun sendemail(name: String){
+        val email = vm.getUserLiveData().value!!.email
+
+        val subject = "Store Redeem"
+        val content = """
+            <p> You have redeemed <p>
+            <h1> $name </h1>
+        """.trimIndent()
+
+        SimpleEmail()
+            .to(email)
+            .subject(subject)
+            .content(content)
+            .isHtml()
+            .send() {
+                snackbar("Redeemed")
+            }
+        snackbar("Redeeming...")
+
+
+    }
 
 }

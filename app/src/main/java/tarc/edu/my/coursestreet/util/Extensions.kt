@@ -37,6 +37,11 @@ fun Fragment.infoDialog(text: String) {
         .show()
 }
 
+//SNACKBAR
+fun Fragment.snackbar(text: String) {
+    Snackbar.make(requireView(), text, Snackbar.LENGTH_SHORT).show()
+}
+
 // ----------------------------------------------------------------------------
 // Bitmap Extensions
 // ----------------------------------------------------------------------------
