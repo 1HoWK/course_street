@@ -65,7 +65,8 @@
     <fragment
         android:id="@+id/checkQuestionFragment"
         android:name="tarc.edu.my.coursestreet.ui.CheckQuestionFragment"
-        android:label="Answers" />
+        android:label="Answers"
+        tools:layout="@layout/fragment_check_question" />
     <fragment
         android:id="@+id/registerFragment"
         android:name="tarc.edu.my.coursestreet.ui.RegisterFragment"

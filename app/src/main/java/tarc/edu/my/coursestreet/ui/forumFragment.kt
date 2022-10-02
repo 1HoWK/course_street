@@ -34,7 +34,7 @@ class forumFragment : Fragment() {
 
         val adapter = QuestionAdapter() { holder, questions ->
             holder.root.setOnClickListener {
-                nav.navigate(R.id.checkQuestionFragment, bundleOf("id" to questions.id, "userId" to questions.user))
+                nav.navigate(R.id.checkQuestionFragment, bundleOf("id" to questions.id, "userId" to questions.user, "title" to questions.title, "question" to questions.question))
             }
 
         }

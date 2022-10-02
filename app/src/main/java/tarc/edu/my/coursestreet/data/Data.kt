@@ -43,3 +43,4 @@ data class Reply(
 val USERS = Firebase.firestore.collection("users")
 
 val QUESTIONS = Firebase.firestore.collection("questions")
+val REPLY = Firebase.firestore.collection("reply")

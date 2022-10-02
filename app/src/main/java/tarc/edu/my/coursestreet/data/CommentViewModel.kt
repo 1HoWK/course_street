@@ -52,7 +52,7 @@ class CommentViewModel: ViewModel() {
 
     }
 
-    fun setReply(r: String){
+    fun setReply(r: Reply){
         col.document().set(r)
     }
 
