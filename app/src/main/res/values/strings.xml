@@ -31,7 +31,71 @@
     <string name="newPassword">New Password: </string>
     <string name="newConfirmPass">Confirm New Password: </string>
     <string name="photo">Profile Photo: </string>
+    <string name="highest_qualification">Highest qualification of study</string>
+    <string name="spinner_description">contains a list of qualifications</string>
+    <string name="spinner_interests">contains a list of field of interests</string>
+    <string name="spinner_subjects">contains a list of subjects</string>
+    <string name="spinner_grades">contains a list of grades</string>
+    <string name="academic_qualifications">Academic Qualifications</string>
+    <string name="field_of_interest">Field of interest</string>
+    <string name="submit">Find suitable universities</string>
+    <string name="subject">Subject</string>
+    <string name="grade">Grade</string>
 
+    <string-array name="qualification_array">
+        <item>-</item>
+        <item>SPM</item>
+        <item>A-Levels</item>
+        <item>STPM</item>
+        <item>UEC</item>
+        <item>Diploma</item>
+    </string-array>
+
+    <string-array name="field_of_interest_array">
+        <item>-</item>
+        <item>Computing and IT</item>
+        <item>Accounting and Finance</item>
+        <item>Arts and Design</item>
+        <item>Engineering</item>
+        <item>Business</item>
+        <item>Communication and Social Science</item>
+        <item>Built Environment</item>
+        <item>Hospitality and Tourism</item>
+        <item>Health Science</item>
+        <item>Design</item>
+    </string-array>
+
+    <string-array name="grades_array">
+        <item>-</item>
+        <item>A+</item>
+        <item>A</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B</item>
+        <item>C+</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>G</item>
+        <item>X</item>
+    </string-array>
+
+    <string-array name="subjects_array">
+        <item>-</item>
+        <item>Bahasa Melayu</item>
+        <item>Bahasa Inggeris</item>
+        <item>Pendidikan Moral</item>
+        <item>Pendidikan Islam</item>
+        <item>Sejarah</item>
+        <item>Mathematics</item>
+        <item>Additional Mathematics</item>
+        <item>Physics</item>
+        <item>Chemistry</item>
+        <item>Biology</item>
+        <item>Science</item>
+        <item>Principle of Accounting</item>
+        <item>Economics</item>
+    </string-array>
 
 
 </resources>
