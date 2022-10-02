@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/storeFragment"
         android:name="tarc.edu.my.coursestreet.ui.storeFragment"
-        android:label="fragment_store"
+        android:label="Course Street"
         tools:layout="@layout/fragment_store" />
     <fragment
         android:id="@+id/uniInfoFragment"

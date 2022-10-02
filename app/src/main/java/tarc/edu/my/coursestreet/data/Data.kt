@@ -18,6 +18,23 @@ data class User(
     var photo   : Blob = Blob.fromBytes(ByteArray(0)),
 )
 
+data class Store(
+    @DocumentId
+    var id : String = "",
+    var itemName : String = "",
+    var itemPhoto : Blob = Blob.fromBytes(ByteArray(0)),
+    var itemPrice : Int = 0,
+)
+
+data class Items(
+    @DocumentId
+    var id : String = "",
+    var user : String = "",
+    var itemName : String = "",
+    var itemPhoto : Blob = Blob.fromBytes(ByteArray(0)),
+    var itemQty : Int = 0
+)
+
 data class Questions(
     @DocumentId
     var id      : String = "",
@@ -75,7 +92,8 @@ data class Academic(
     )
 
 val USERS = Firebase.firestore.collection("users")
-
+val STORE = Firebase.firestore.collection("store")
 val QUESTIONS = Firebase.firestore.collection("questions")
 val REPLY = Firebase.firestore.collection("reply")
+val ITEMS = Firebase.firestore.collection("items")
 val ACADEMIC = Firebase.firestore.collection("academic_qualifications")

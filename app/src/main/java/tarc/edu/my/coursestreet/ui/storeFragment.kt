@@ -5,56 +5,68 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import tarc.edu.my.coursestreet.R
+import tarc.edu.my.coursestreet.data.AuthViewModel
+import tarc.edu.my.coursestreet.data.Items
+import tarc.edu.my.coursestreet.data.StoreViewModel
+import tarc.edu.my.coursestreet.data.USERS
+import tarc.edu.my.coursestreet.databinding.FragmentStoreBinding
+import tarc.edu.my.coursestreet.util.StoreAdapter
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [storeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class storeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding: FragmentStoreBinding
+    private val vm : AuthViewModel by activityViewModels()
+    private val svm: StoreViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_store, container, false)
+        binding = FragmentStoreBinding.inflate(inflater,container,false)
+        var credits: Int  = 0
+
+        vm.getUserLiveData().observe(viewLifecycleOwner) { user ->
+            if (credits != null) {
+                binding.creditAmountTxt.text = "${user!!.credit} credits"
+            }
+            credits = user!!.credit
+        }
+
+
+
+        val adapter = StoreAdapter(){ holder, store ->
+            holder.redeemBtn.setOnClickListener{
+                if (credits >= store.itemPrice){
+                    val itemSet = Items(
+                        id = "",
+                        user = "${vm.getUserID()}",
+                        itemName = "${store.itemName}",
+                        itemPhoto = store.itemPhoto,
+                        itemQty = +1
+                    )
+                    svm.setItemUser(itemSet)
+                    val currentUser = vm.getUserLiveData()
+                    USERS.document("${vm.getUserID()}").update("credit", currentUser.value!!.credit - store.itemPrice)
+                    Toast.makeText(context, "Successfully Redeemed", Toast.LENGTH_SHORT).show()
+
+                }else{
+                    Toast.makeText(context, "Not enough credit", Toast.LENGTH_SHORT).show()
+                }
+
+            }
+
+        }
+
+        binding.storeItemRV.adapter = adapter
+        svm.getAllStore().observe(viewLifecycleOwner){ store ->
+            adapter.submitList(store)
+        }
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment storeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            storeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
+
 }
