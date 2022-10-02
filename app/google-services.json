@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "929444698361",
+    "project_id": "coursestreet-4a8ad",
+    "storage_bucket": "coursestreet-4a8ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:929444698361:android:ef0fdee3ea51538ce1ea28",
+        "android_client_info": {
+          "package_name": "tarc.edu.my.coursestreet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "929444698361-6dhf3vhoagbl3f9e6geuorb0989aqmfa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCve1qvAWdA4s0RHB31CBYvGfsBGS1k4k4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "929444698361-6dhf3vhoagbl3f9e6geuorb0989aqmfa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
