@@ -3,13 +3,34 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Documents/course_street/app/src/main/res/drawable/loading_img.xml" value="0.2275" />
+        <entry key="..\:/Documents/course_street/app/src/main/res/drawable/vector_chat.xml" value="0.2275" />
+        <entry key="..\:/Documents/course_street/app/src/main/res/drawable/vector_home.xml" value="0.2275" />
         <entry key="..\:/Documents/course_street/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Documents/course_street/app/src/main/res/layout/fragment_forum.xml" value="0.22826086956521738" />
-        <entry key="..\:/Documents/course_street/app/src/main/res/layout/fragment_home.xml" value="0.5121477162293488" />
+        <entry key="..\:/Documents/course_street/app/src/main/res/layout/event_item.xml" value="0.264" />
+        <entry key="..\:/Documents/course_street/app/src/main/res/layout/forum_item.xml" value="0.4" />
+        <entry key="..\:/Documents/course_street/app/src/main/res/layout/fragment_check_question.xml" value="0.264" />
+        <entry key="..\:/Documents/course_street/app/src/main/res/layout/fragment_forum.xml" value="0.264" />
+        <entry key="..\:/Documents/course_street/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Documents/course_street/app/src/main/res/layout/fragment_post_question.xml" value="0.22644927536231885" />
         <entry key="..\:/Documents/course_street/app/src/main/res/layout/fragment_profile.xml" value="0.27447916666666666" />
         <entry key="..\:/Documents/course_street/app/src/main/res/layout/fragment_store.xml" value="0.27447916666666666" />
+        <entry key="..\:/Documents/course_street/app/src/main/res/layout/fragment_uni_info.xml" value="0.1265625" />
+        <entry key="..\:/Documents/course_street/app/src/main/res/layout/fragment_uni_list.xml" value="0.1265625" />
         <entry key="..\:/Documents/course_street/app/src/main/res/layout/header.xml" value="0.536" />
+        <entry key="..\:/Documents/course_street/app/src/main/res/layout/matcheduni_item.xml" value="0.4" />
         <entry key="..\:/Documents/course_street/app/src/main/res/menu/nav_menu.xml" value="0.536" />
+        <entry key="..\:/Users/chano/StudioProjects/course_street/app/src/main/res/drawable/vector_account.xml" value="0.207" />
+        <entry key="..\:/Users/chano/StudioProjects/course_street/app/src/main/res/layout/forum_item.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/chano/StudioProjects/course_street/app/src/main/res/layout/fragment_forum.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/chano/StudioProjects/course_street/app/src/main/res/layout/fragment_login.xml" value="0.2" />
+        <entry key="..\:/Users/chano/StudioProjects/course_street/app/src/main/res/layout/fragment_post_question.xml" value="0.1" />
+        <entry key="..\:/Users/chano/StudioProjects/course_street/app/src/main/res/layout/fragment_profile.xml" value="0.4" />
+        <entry key="..\:/Users/chano/StudioProjects/course_street/app/src/main/res/layout/fragment_profile_edit.xml" value="0.4" />
+        <entry key="..\:/Users/chano/StudioProjects/course_street/app/src/main/res/layout/fragment_profile_edit_password.xml" value="0.4" />
+        <entry key="..\:/Users/chano/StudioProjects/course_street/app/src/main/res/layout/fragment_register.xml" value="0.4" />
+        <entry key="..\:/Users/chano/StudioProjects/course_street/app/src/main/res/layout/fragment_store.xml" value="0.18840579710144928" />
+        <entry key="..\:/Users/chano/StudioProjects/course_street/app/src/main/res/layout/header.xml" value="0.1762917933130699" />
         <entry key="..\:/Users/howai/AndroidStudioProjects/coursestreet/app/src/main/res/layout/activity_main.xml" value="0.2" />
       </map>
     </option>

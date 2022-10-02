@@ -13,6 +13,25 @@
     <string name="profile_pic">Profile Pic</string>
     <string name="profile_name">Profile Name</string>
     <string name="profile_email">testemail@gmail.com</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="forum_text">Forum</string>
+    <string name="postquestion_text">Post Question</string>
+    <string name="answered_txt">Answered</string>
+    <string name="unanswered_txt">Unanswered</string>
+    <string name="ask_question">Ask a question!</string>
+    <string name="title_help">Title</string>
+    <string name="question_help">Question</string>
+    <string name="post_help">Post</string>
+    <string name="email">Email: </string>
+    <string name="password">Password: </string>
+    <string name="confirmPass">Confirm Password: </string>
+    <string name="name">Name: </string>
+    <string name="oldPassword">Old Password: </string>
+    <string name="newPassword">New Password: </string>
+    <string name="newConfirmPass">Confirm New Password: </string>
+    <string name="photo">Profile Photo: </string>
+
 
 
 </resources>
