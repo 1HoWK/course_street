@@ -30,10 +30,10 @@ class ResultsViewModel: ViewModel() {
     fun validate(academic: Academic): String {
         var e = ""
 
-        e += if (academic.fieldOfInterest == "") "- Field Of Interest is required.\n"
+        e += if (academic.fieldOfInterest == "-") "- Field Of Interest is required.\n"
         else ""
 
-        e += if (academic.qualification == "") "- Qualification of Study is required.\n"
+        e += if (academic.qualification == "-") "- Qualification of Study is required.\n"
         else ""
 
 
