@@ -14,6 +14,7 @@ data class User(
     var password: String = "",
     var name    : String = "",
     var credit  : Int = 0,
+    var results : Boolean = false,
     var photo   : Blob = Blob.fromBytes(ByteArray(0)),
 )
 
@@ -40,7 +41,41 @@ data class Reply(
     var question: Questions = Questions()
 }
 
+data class Academic(
+    @DocumentId
+    var id          : String = "",
+    var user        : String = "",
+    var fieldOfInterest : String = "",
+    var qualification : String = "",
+    var Subject1    : String = "",
+    var Grade1      : String = "",
+    var Subject2    : String = "",
+    var Grade2      : String = "",
+    var Subject3    : String = "",
+    var Grade3      : String = "",
+    var Subject4    : String = "",
+    var Grade4      : String = "",
+    var Subject5    : String = "",
+    var Grade5      : String = "",
+    var Subject6    : String = "",
+    var Grade6      : String = "",
+    var Subject7    : String = "",
+    var Grade7      : String = "",
+    var Subject8    : String = "",
+    var Grade8      : String = "",
+    var Subject9    : String = "",
+    var Grade9      : String = "",
+    var Subject10    : String = "",
+    var Grade10      : String = "",
+    var Subject11    : String = "",
+    var Grade11      : String = "",
+    var Subject12    : String = "",
+    var Grade12      : String = "",
+
+    )
+
 val USERS = Firebase.firestore.collection("users")
 
 val QUESTIONS = Firebase.firestore.collection("questions")
 val REPLY = Firebase.firestore.collection("reply")
+val ACADEMIC = Firebase.firestore.collection("academic_qualifications")
