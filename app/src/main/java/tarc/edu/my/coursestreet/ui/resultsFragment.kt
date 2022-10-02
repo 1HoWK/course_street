@@ -9,186 +9,207 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import tarc.edu.my.coursestreet.R
+import tarc.edu.my.coursestreet.data.*
 import tarc.edu.my.coursestreet.databinding.FragmentRegisterBinding
 import tarc.edu.my.coursestreet.databinding.FragmentResultsBinding
+import tarc.edu.my.coursestreet.util.cropToBlob
+import tarc.edu.my.coursestreet.util.errorDialog
+import tarc.edu.my.coursestreet.util.infoDialog
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [resultsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class resultsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
     private lateinit var binding: FragmentResultsBinding
+    private val auth: AuthViewModel by activityViewModels()
+    private val nav by lazy { findNavController() }
+    private val result: ResultsViewModel by activityViewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
+        binding = FragmentResultsBinding.inflate(inflater, container, false)
+        infoDialog("Please provide your study information to find suitable universities and courses")
+
+
+        // Spinner
+        val spinner1: Spinner = binding.spinnerQualification
+        val spinner2: Spinner = binding.spinnerFieldOfInterest
+        val spinner3: Spinner = binding.spinnerAcademic1
+        val spinner4: Spinner = binding.spinnerGrade1
+        val spinner5: Spinner = binding.spinnerAcademic2
+        val spinner6: Spinner = binding.spinnerGrade2
+        val spinner7: Spinner = binding.spinnerAcademic3
+        val spinner8: Spinner = binding.spinnerGrade3
+        val spinner9: Spinner = binding.spinnerAcademic4
+        val spinner10: Spinner = binding.spinnerGrade4
+        val spinner11: Spinner = binding.spinnerAcademic5
+        val spinner12: Spinner = binding.spinnerGrade5
+        val spinner13: Spinner = binding.spinnerAcademic6
+        val spinner14: Spinner = binding.spinnerGrade6
+        val spinner15: Spinner = binding.spinnerAcademic7
+        val spinner16: Spinner = binding.spinnerGrade7
+        val spinner17: Spinner = binding.spinnerAcademic8
+        val spinner18: Spinner = binding.spinnerGrade8
+        val spinner19: Spinner = binding.spinnerAcademic9
+        val spinner20: Spinner = binding.spinnerGrade9
+        val spinner21: Spinner = binding.spinnerAcademic10
+        val spinner22: Spinner = binding.spinnerGrade10
+        val spinner23: Spinner = binding.spinnerAcademic11
+        val spinner24: Spinner = binding.spinnerGrade11
+        val spinner25: Spinner = binding.spinnerAcademic12
+        val spinner26: Spinner = binding.spinnerGrade12
+
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter.createFromResource(
+            this.requireContext(),
+            R.array.qualification_array,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            spinner1.adapter = adapter
         }
-//
-//        // Spinner
-//        val spinner1: Spinner = findViewById(R.id.spinner_qualification)
-//        val spinner2: Spinner = findViewById(R.id.spinner_field_of_interest)
-//        val spinner3: Spinner = findViewById(R.id.spinner_academic_1)
-//        val spinner4: Spinner = findViewById(R.id.spinner_grade_1)
-//        val spinner5: Spinner = findViewById(R.id.spinner_academic_2)
-//        val spinner6: Spinner = findViewById(R.id.spinner_grade_2)
-//        val spinner7: Spinner = findViewById(R.id.spinner_academic_3)
-//        val spinner8: Spinner = findViewById(R.id.spinner_grade_3)
-//        val spinner9: Spinner = findViewById(R.id.spinner_academic_4)
-//        val spinner10: Spinner = findViewById(R.id.spinner_grade_4)
-//        val spinner11: Spinner = findViewById(R.id.spinner_academic_5)
-//        val spinner12: Spinner = findViewById(R.id.spinner_grade_5)
-//        val spinner13: Spinner = findViewById(R.id.spinner_academic_6)
-//        val spinner14: Spinner = findViewById(R.id.spinner_grade_6)
-//        val spinner15: Spinner = findViewById(R.id.spinner_academic_7)
-//        val spinner16: Spinner = findViewById(R.id.spinner_grade_7)
-//        val spinner17: Spinner = findViewById(R.id.spinner_academic_8)
-//        val spinner18: Spinner = findViewById(R.id.spinner_grade_8)
-//        val spinner19: Spinner = findViewById(R.id.spinner_academic_9)
-//        val spinner20: Spinner = findViewById(R.id.spinner_grade_9)
-//        val spinner21: Spinner = findViewById(R.id.spinner_academic_10)
-//        val spinner22: Spinner = findViewById(R.id.spinner_grade_10)
-//        val spinner23: Spinner = findViewById(R.id.spinner_academic_11)
-//        val spinner24: Spinner = findViewById(R.id.spinner_grade_11)
-//        val spinner25: Spinner = findViewById(R.id.spinner_academic_12)
-//        val spinner26: Spinner = findViewById(R.id.spinner_grade_12)
-//
-//        // Create an ArrayAdapter using the string array and a default spinner layout
-//        ArrayAdapter.createFromResource(
-//            this,
-//            R.array.qualification_array,
-//            android.R.layout.simple_spinner_item
-//        ).also { adapter ->
-//            // Specify the layout to use when the list of choices appears
-//            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-//            // Apply the adapter to the spinner
-//            spinner1.adapter = adapter
-//        }
-//
-//        ArrayAdapter.createFromResource(
-//            this,
-//            R.array.field_of_interest_array,
-//            android.R.layout.simple_spinner_item
-//        ).also { adapter ->
-//            // Specify the layout to use when the list of choices appears
-//            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-//            // Apply the adapter to the spinner
-//            spinner2.adapter = adapter
-//        }
-//
-//        // academic
-//        // subjects
-//        ArrayAdapter.createFromResource(
-//            this,
-//            R.array.subjects_array,
-//            android.R.layout.simple_spinner_item
-//        ).also { adapter ->
-//            // Specify the layout to use when the list of choices appears
-//            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-//            // Apply the adapter to the spinner
-//            spinner3.adapter = adapter
-//            spinner5.adapter = adapter
-//            spinner7.adapter = adapter
-//            spinner9.adapter = adapter
-//            spinner11.adapter = adapter
-//            spinner13.adapter = adapter
-//            spinner15.adapter = adapter
-//            spinner17.adapter = adapter
-//            spinner19.adapter = adapter
-//            spinner21.adapter = adapter
-//            spinner23.adapter = adapter
-//            spinner25.adapter = adapter
-//        }
-//
-//        // grade
-//        ArrayAdapter.createFromResource(
-//            this,
-//            R.array.grades_array,
-//            android.R.layout.simple_spinner_item
-//        ).also { adapter ->
-//            // Specify the layout to use when the list of choices appears
-//            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-//            // Apply the adapter to the spinner
-//            spinner4.adapter = adapter
-//            spinner6.adapter = adapter
-//            spinner8.adapter = adapter
-//            spinner10.adapter = adapter
-//            spinner12.adapter = adapter
-//            spinner14.adapter = adapter
-//            spinner16.adapter = adapter
-//            spinner18.adapter = adapter
-//            spinner20.adapter = adapter
-//            spinner22.adapter = adapter
-//            spinner24.adapter = adapter
-//            spinner26.adapter = adapter
-//        }
-//
-//        val submitButton : Button = findViewById(R.id.button_submit)
-//
-//        submitButton.setOnClickListener(object : View.OnClickListener {
-//            override fun onClick(v: View?) {
-//                //your implementation goes here
-//                var qualification = spinner1.selectedItemId.toString()
-//                var fieldOfInterest = spinner2.selectedItemId.toString()
-//                var academic1 = spinner3.selectedItemId.toString()
-//                var grade1 = spinner4.selectedItemId.toString()
-//
-////                Toast.makeText(getApplicationContext(),
-////                    qualification + "" + fieldOfInterest + "" + academic1 + "" + grade1,
-////                    Toast.LENGTH_LONG)
-////                    .show();
-//
-//                val text = "Hello toast!"
-//                val duration = Toast.LENGTH_SHORT
-//                val toast = Toast.makeText(applicationContext, text, duration)
-//                toast.show()
-////                Toast.makeText(context, text, duration).show()
-////                Toast.makeText(getApplicationContext(),
-////                    "This a toast message",
-////                    Toast.LENGTH_LONG)
-////                    .show();
-//            }
-//        })
 
+        ArrayAdapter.createFromResource(
+            this.requireContext(),
+            R.array.field_of_interest_array,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            spinner2.adapter = adapter
+        }
+
+        // academic
+        // subjects
+        ArrayAdapter.createFromResource(
+            this.requireContext(),
+            R.array.subjects_array,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            spinner3.adapter = adapter
+            spinner5.adapter = adapter
+            spinner7.adapter = adapter
+            spinner9.adapter = adapter
+            spinner11.adapter = adapter
+            spinner13.adapter = adapter
+            spinner15.adapter = adapter
+            spinner17.adapter = adapter
+            spinner19.adapter = adapter
+            spinner21.adapter = adapter
+            spinner23.adapter = adapter
+            spinner25.adapter = adapter
+        }
+
+        // grade
+        ArrayAdapter.createFromResource(
+            this.requireContext(),
+            R.array.grades_array,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            spinner4.adapter = adapter
+            spinner6.adapter = adapter
+            spinner8.adapter = adapter
+            spinner10.adapter = adapter
+            spinner12.adapter = adapter
+            spinner14.adapter = adapter
+            spinner16.adapter = adapter
+            spinner18.adapter = adapter
+            spinner20.adapter = adapter
+            spinner22.adapter = adapter
+            spinner24.adapter = adapter
+            spinner26.adapter = adapter
+        }
+
+        binding.buttonSubmit.setOnClickListener{submit()}
+        return binding.root
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_results, container, false)
+    private fun submit(){
+
+        var qualification = binding.spinnerQualification.selectedItem.toString()
+        var fieldOfInterest = binding.spinnerFieldOfInterest.selectedItem.toString()
+        var academic1 = binding.spinnerAcademic1.selectedItem.toString()
+        var grade1 = binding.spinnerGrade1.selectedItem.toString()
+        var academic2 = binding.spinnerAcademic2.selectedItem.toString()
+        var grade2 = binding.spinnerGrade2.selectedItem.toString()
+        var academic3 = binding.spinnerAcademic3.selectedItem.toString()
+        var grade3 = binding.spinnerGrade3.selectedItem.toString()
+        var academic4 = binding.spinnerAcademic4.selectedItem.toString()
+        var grade4 = binding.spinnerGrade4.selectedItem.toString()
+        var academic5 = binding.spinnerAcademic5.selectedItem.toString()
+        var grade5 = binding.spinnerGrade5.selectedItem.toString()
+        var academic6 = binding.spinnerAcademic6.selectedItem.toString()
+        var grade6 = binding.spinnerGrade6.selectedItem.toString()
+        var academic7 = binding.spinnerAcademic7.selectedItem.toString()
+        var grade7 = binding.spinnerGrade7.selectedItem.toString()
+        var academic8 = binding.spinnerAcademic8.selectedItem.toString()
+        var grade8 = binding.spinnerGrade8.selectedItem.toString()
+        var academic9 = binding.spinnerAcademic9.selectedItem.toString()
+        var grade9 = binding.spinnerGrade9.selectedItem.toString()
+        var academic10 = binding.spinnerAcademic10.selectedItem.toString()
+        var grade10 = binding.spinnerGrade10.selectedItem.toString()
+        var academic11 = binding.spinnerAcademic11.selectedItem.toString()
+        var grade11 = binding.spinnerGrade11.selectedItem.toString()
+        var academic12 = binding.spinnerAcademic12.selectedItem.toString()
+        var grade12 = binding.spinnerGrade12.selectedItem.toString()
+
+
+        val user = User(
+            id = auth.getUser()?.id.toString(),
+            results = true
+        )
+
+        val academic = Academic(
+            user = auth.getUserID(),
+            fieldOfInterest = fieldOfInterest,
+            qualification = qualification,
+            Subject1 = academic1,
+            Grade1 = grade1,
+            Subject2 = academic2,
+            Grade2 = grade2,
+            Subject3 = academic3,
+            Grade3 = grade3,
+            Subject4 = academic4,
+            Grade4= grade4,
+            Subject5 = academic5,
+            Grade5 = grade5,
+            Subject6 = academic6,
+            Grade6 = grade6,
+            Subject7 = academic7,
+            Grade7 = grade7,
+            Subject8 = academic8,
+            Grade8 = grade8,
+            Subject9 = academic9,
+            Grade9 = grade9,
+            Subject10 = academic10,
+            Grade10 = grade10,
+            Subject11 = academic11,
+            Grade11 = grade11,
+            Subject12 = academic12,
+            Grade12 = grade12
+
+        )
+
+        val err = result.validate(academic)
+        if(err != ""){
+            errorDialog(err)
+            return
+        }
+
+        result.update(user)
+        Toast.makeText(context, "Upload successfully", Toast.LENGTH_SHORT).show()
+        result.upload(academic)
+        nav.popBackStack(R.id.nav_graph,false)
+        nav.navigate(R.id.homeFragment)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment resultsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            resultsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }

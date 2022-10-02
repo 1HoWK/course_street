@@ -1,6 +1,8 @@
 package tarc.edu.my.coursestreet.ui
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,11 +10,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.firestore.Blob
 import kotlinx.coroutines.launch
 import tarc.edu.my.coursestreet.R
 import tarc.edu.my.coursestreet.data.AuthViewModel
 import tarc.edu.my.coursestreet.databinding.FragmentLoginBinding
 import tarc.edu.my.coursestreet.util.errorDialog
+import tarc.edu.my.coursestreet.util.toBitmap
 
 
 class LoginFragment : Fragment() {
@@ -23,6 +27,11 @@ class LoginFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
+
+        if (auth.getUser()?.results == false){
+            this.activity?.let { auth.logout(it.application) }
+        }
+
         binding.btnLogin.setOnClickListener { login() }
         binding.btnReg.setOnClickListener { register() }
         return binding.root
