@@ -1,6 +1,7 @@
 package tarc.edu.my.coursestreet.ui
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -36,6 +37,14 @@ class PostQuestionFragment : Fragment() {
             val title: String = binding.editTitle.text.toString()
             val question: String = binding.editQuestion.text.toString()
             val userID = user.getUserID()
+
+            if(TextUtils.isEmpty(title)){
+                binding.editTitle.error = "Please enter a title."
+                return@setOnClickListener
+            }else if (TextUtils.isEmpty(question)){
+                binding.editQuestion.error = "Please enter a question."
+                return@setOnClickListener
+            }
 
             val questionSet = Questions(
                 id = "",

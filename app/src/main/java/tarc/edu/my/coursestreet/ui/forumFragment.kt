@@ -12,10 +12,12 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
 import tarc.edu.my.coursestreet.R
+import tarc.edu.my.coursestreet.data.AuthViewModel
 import tarc.edu.my.coursestreet.data.EventViewModel
 import tarc.edu.my.coursestreet.data.QuestionViewModel
 import tarc.edu.my.coursestreet.data.Questions
 import tarc.edu.my.coursestreet.databinding.FragmentForumBinding
+import tarc.edu.my.coursestreet.util.CommentAdapter
 import tarc.edu.my.coursestreet.util.QuestionAdapter
 
 
@@ -24,6 +26,7 @@ class forumFragment : Fragment() {
     private lateinit var binding: FragmentForumBinding
     private val nav by lazy { findNavController() }
     private val vm: QuestionViewModel by activityViewModels()
+    private val avm: AuthViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
@@ -31,7 +34,7 @@ class forumFragment : Fragment() {
 
         val adapter = QuestionAdapter() { holder, questions ->
             holder.root.setOnClickListener {
-                nav.navigate(R.id.checkQuestionFragment, bundleOf("id" to questions.id))
+                nav.navigate(R.id.checkQuestionFragment, bundleOf("id" to questions.id, "userId" to questions.user))
             }
 
         }
@@ -48,7 +51,6 @@ class forumFragment : Fragment() {
 
         vm.getAll().observe(viewLifecycleOwner) { questions ->
             adapter.submitList(questions)
-
         }
 
         binding.postQuestionButton.setOnClickListener {

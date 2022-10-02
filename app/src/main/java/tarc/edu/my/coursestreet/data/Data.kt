@@ -2,6 +2,7 @@ package tarc.edu.my.coursestreet.data
 
 import com.google.firebase.firestore.Blob
 import com.google.firebase.firestore.DocumentId
+import com.google.firebase.firestore.Exclude
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.util.*
@@ -26,4 +27,19 @@ data class Questions(
     var answered: Boolean = false
 )
 
+data class Reply(
+    @DocumentId
+    var id      : String = "",
+    var belongTo: String = "",
+    var user    : String = "",
+    var userName: String = "",
+    var status  : Boolean = false,
+    var comment : String = "",
+){
+    @get: Exclude
+    var question: Questions = Questions()
+}
+
 val USERS = Firebase.firestore.collection("users")
+
+val QUESTIONS = Firebase.firestore.collection("questions")

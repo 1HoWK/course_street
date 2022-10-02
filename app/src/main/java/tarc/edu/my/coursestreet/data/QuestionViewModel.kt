@@ -19,4 +19,6 @@ class QuestionViewModel: ViewModel(){
     fun setQuestions(q: Questions){
         col.document().set(q)
     }
+
+
 }

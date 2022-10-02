@@ -137,6 +137,8 @@ class AuthViewModel : ViewModel() {
         return users.value?.any { user -> user.email == email } ?: false
     }
 
+
+
     fun validate(user: User, confirmPass: String): String {
         var e = ""
 
